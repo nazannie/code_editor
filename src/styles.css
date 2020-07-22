@@ -4,3 +4,54 @@
 	border: none;
     box-sizing: border-box;
 }
+
+body {
+	background-color: #333333;
+}
+
+.container {
+	display: flex;
+	height: 100vh;
+}
+
+.explorer {
+	background-color: #252526;
+	height: 100vh;
+	min-width: 250px;
+}
+
+.title {
+	background-color: #333333;
+	height: 50px;
+	padding: 18px;
+	font-family: 'Courier New', Courier, monospace
+}
+
+.editor {
+  width: 100%;
+  height: 100vh;
+}
+
+.tabs_container {
+  background-color: #1e1e1e;
+  min-width: 100vh;
+  height: 50px;
+}
+
+.textarea {
+	background-color: #383838;
+	width: 100%;
+	resize: none;
+    height: calc(100% - 80px);
+	outline: none;
+	font-size: 20px;
+	font-family: 'Courier New', Courier, monospace
+}
+
+.file_address {
+	background-color: #1e1e1e;
+	height: 30px;
+	min-width: 100vh;
+	padding: 7px;
+	font-family: 'Courier New', Courier, monospace
+}
