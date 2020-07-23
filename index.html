@@ -5,19 +5,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./src/styles.css">
+    <!-- Font Awsome i.e. Icons -->
+    <script src="https://kit.fontawesome.com/a11410b5f2.js" crossorigin="anonymous"></script>
     <title>Code Editor</title>
 </head>
 <body>
     <div class="container">
+        <!-- First Cont & and the file navigation -->
         <div class="explorer">
+            <!-- Title -->
             <div class="title">Explorer</div>
+            <!-- Control Buttons -->
+            <div class="controlBtns" id="controlBtns" >
+                <!-- New Folder -->
+                <button type="button" id="addNewFolder" class="controlBtn" disabled><i class="far fa-folder-open"></i></button>
+                <!-- New File -->
+                <button type="button" id="addNewFile" class="controlBtn" disabled><i class="far fa-file-code"></i></button>
+            </div>
+            <!-- File Navigation -->
+            <div class="fileNavigation" id = 'fileNavigation' >
+                <div class="fileNavigationTitle" >Folder/File Name</div>
+                <div class="givingName">
+                    <input placeholder="Enter the name" type="text" class="inputForGivingName" id = "inputForName"/>
+                </div>
+                <!-- case No Folder is created -->
+                <div class="btnsForCreation" id = 'creationBtns' >
+                    <button type="button" class="btnForCreation" id = 'createRootBtn' >Create a Folder</button>
+                    <button type="button" class="btnForCreation" >Open a Folder</button>
+                </div>
+            </div>
+
         </div>
+        <!-- Editor with input and everything else -->
         <div class="editor">
+            <!-- Tabs -->
             <div class="tabs_container"></div>
+            <!-- Input -->
             <textarea name="textarea" id="" cols="30" rows="10" class="textarea" placeholder="Type Here"></textarea>
+            <!-- Adress -->
             <div class="file_address">Welcome</div>
         </div>
     </div>
     <script src="./src/script.js"></script>
 </body>
 </html>
+<!-- case there is a folder created -->
+<!-- <div class="file" >
+    <div class="fileIcon IconJS" ><i class="fab fa-js"></i></div>
+    <div class="fileName" >Name.js</div>
+    <div class="file fileControls">
+        Close
+        <div class="fileIcon IconClose" ><i class="fas fa-window-close"></i></div>
+        Rename
+        <input type="text" placeholder="Rename" class="renameInput" />
+    </div>
+</div> -->
+<!-- <div class="folder">
+    <div class="folderHeader" >
+        <div class="folderIcon folderMoreIcon" ><i class="fas fa-chevron-down"></i></div>
+        <div class="folderIcon" ><i class="fas fa-folder"></i></div>
+        <div class="folderTitle" >Root</div>
+        <div class="folderControl" ></div>
+    </div>
+    <div class="folderRest folderRestActive">
+    </div>
+</div> -->

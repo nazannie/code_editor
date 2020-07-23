@@ -14,19 +14,228 @@ body {
 	height: 100vh;
 }
 
+/* Expolrer */
 .explorer {
 	background-color: #252526;
 	height: 100vh;
 	min-width: 250px;
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: center;
 }
-
+	/* Title */
 .title {
 	background-color: #333333;
-	height: 50px;
-	padding: 18px;
-	font-family: 'Courier New', Courier, monospace
+	height: 10%;
+	width: 100%;
+	padding: 0 1rem;
+	font-family: 'Courier New', Courier, monospace;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
-
+	/* Control Buttons */
+.controlBtns{
+	width: 100%;
+	height: 10%;
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	justify-content: flex-end;
+	background-color: #333333;
+}
+		/* Control Button */
+.controlBtn{
+	height: 100%;
+	width: 10vh;
+	background-color: #252526;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 2rem;
+	font-weight: 700;
+	color: #12100b;
+	outline: none !important;
+	cursor: pointer;
+}
+	/* File Navigation */
+.fileNavigation{
+	height: 80%;
+	width: 100%;
+	display: flex;
+	position: relative;
+	padding: 2.5rem 0 0;
+	flex-flow: column nowrap;
+	align-items: center;
+}
+		/* File Navigation Title */
+.fileNavigationTitle{
+	width: 100%;
+	height: 2.5rem;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: #37373d;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #bcbcbc;
+	font-family: 'Courier New', Courier, monospace;
+}
+		/* GivingName */
+.givingName{
+	width: 100%;
+    height: 5%;
+    justify-content: center;
+	align-items: unset;
+	display:none;
+}
+.givingNameActive{
+    display: flex;
+}
+			/* Input For Giving a Name */
+.inputForGivingName{
+	width: 100%;
+    background-color: #252526;
+    color: #bcbcbc;
+    outline: none !important;
+    border: 0.125rem solid #1e1e1e;
+    border-radius: 0.25rem;
+}
+		/* Buttons For Creation */
+.btnsForCreation{
+	width: 100%;
+	height: 80vh;
+	background-color: #333333;
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;
+}
+			/* Button For Creation */
+.btnForCreation{
+	width: 80%;
+	height: 2rem;
+	background-color: #383838;
+	border-radius: 1rem;
+	border: 0.125rem solid #12100b;
+	color: #bcbcbc;
+	margin: 0.5rem 0;
+	cursor: pointer;
+	outline: none !important;
+}		
+		/* File */
+.file{
+	width: 100%;
+	height: 2rem;
+	background-color: #383838;
+	color: #bcbcbc;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0rem 1rem;
+	position: relative;
+	overflow: hidden;
+	transition: all 0.2s linear;
+}
+.file:hover .fileControls{
+	right: 0;
+}
+			/* File Icon */
+.fileIcon{
+	width: 20%;
+	text-align: center;
+	font-size: 1.5rem;
+}
+.IconJS{
+	color: #e8d41b;
+}
+.IconHTML{
+	color: #ea6228;
+}
+.IconCSS{
+	color: #0b71b3;
+}
+.IconClose{
+	color: #cc3333;
+	cursor: pointer;
+}
+			/* File Name */
+.fileName{
+	width: 80%;
+	text-align: center;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+			/* File Controls*/
+.fileControls{
+	position: absolute;
+	top: 0;
+	right: -100%;
+	width: 100%;
+	height: 100%;
+	background-color: #bcbcbc;
+	transition: all 0.2s linear;
+	padding: 0 0.5rem;
+}
+				/* Rename Input */
+.renameInput{
+	width: 80%;
+	outline: none !important;
+	height: 90%;
+	border-radius: 1rem;
+	border: 0.125rem solid #12100b;
+	color: #12100b;
+	padding: 0 0.125rem ;
+}
+		/* Folder */
+.folder{
+	width: 100%;
+	background-color: #383838;
+	min-height: 2rem;
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: center;
+	overflow-x: hidden;
+}
+			/* Folder Header */
+.folderHeader{
+	width: 100%;
+	height: 2rem;
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	padding: 0 0.5rem;
+	color: #bcbcbc;
+}
+				/* Folder Icon */
+.folderIcon{
+	font-weight: 700;
+	font-size: 1.5rem;
+	width: 15%;
+	text-align: center;
+	transition: all 0.2s linear;
+}
+.folderMoreIcon{
+	transform: rotate(180deg);
+}
+				/* Folder Title */
+.folderTitle{
+	width: 70%;
+	text-align: center;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+			/* FolderRest */
+.folderRest{
+	width: 100%;
+	margin: 0 0 0 1rem;
+	display: none;
+}
+.folderRestActive{
+	display: flex;
+	flex-flow: column nowrap;
+}
+/* Editor */
 .editor {
   width: 100%;
   height: 100vh;
@@ -34,8 +243,8 @@ body {
 
 .tabs_container {
   background-color: #1e1e1e;
-  min-width: 100vh;
-  height: 50px;
+  width: 100%;
+  height: 10%;
 }
 
 .textarea {
@@ -45,7 +254,7 @@ body {
     height: calc(100% - 80px);
 	outline: none;
 	font-size: 20px;
-	font-family: 'Courier New', Courier, monospace
+	font-family: 'Courier New', Courier, monospace;
 }
 
 .file_address {
@@ -53,5 +262,5 @@ body {
 	height: 30px;
 	min-width: 100vh;
 	padding: 7px;
-	font-family: 'Courier New', Courier, monospace
+	font-family: 'Courier New', Courier, monospace;
 }
