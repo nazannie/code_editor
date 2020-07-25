@@ -18,6 +18,7 @@ body {
 .explorer {
 	background-color: #252526;
 	height: 100vh;
+	width: 15%;
 	min-width: 250px;
 	display: flex;
 	flex-flow: column nowrap;
@@ -266,17 +267,6 @@ body {
 	display: flex;
 	flex-flow: column nowrap;
 }
-/* Editor */
-.editor {
-  width: 100%;
-  height: 100vh;
-}
-	/* Tabs */
-.tabs_container {
-  background-color: #1e1e1e;
-  width: 100%;
-  height: 7%;
-}
 	/* Tab */
 .tab-style {
 	width: 25vh;
@@ -298,25 +288,51 @@ body {
 	cursor:pointer;
 }
 
-	/* Text Area */
-.textarea {
-	background-color: #383838;
+/* Editor starts here*/
+.editor {
+	display: flex;
+	flex-direction: column;
+	align-items: center; 
+	width: 85%;
+	height: 100vh;
+}
+  
+.tabs_container {
+	background-color: #1e1e1e;
+	height: 10%;
 	width: 100%;
+	margin: 0;width: 100%;
+}
+
+.textarea-container {
+	height: 80%;
+	width: 100%;
+}
+
+.textarea {
+	box-sizing: border-box;
+	background-color: #383838;
+	padding: 12px;
+	border: none;
 	resize: none;
-	height: 87.4%;
+	height: 100%;
+	width: 100%;
 	outline: none;
-	font-size: 20px;
+	font-size: 18px;
 	font-family: "Courier New", Courier, monospace;
 	color: white;
-	padding: 5px;
 }
-	/* File Adress */
+
 .file_address {
+	height: 10%;
+	width: 100%;
 	background-color: #1e1e1e;
 	color: #cccccc;
-	height: 5%;
-    width: 100%;
-	padding: 5px;
 	font-family: "Courier New", Courier, monospace;
-	/* color: ; */
 }
+
+.welcome {
+	font-size: 24px;
+	margin: 12px;
+}
+/* Editor ends here*/
