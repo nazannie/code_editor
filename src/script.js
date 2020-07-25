@@ -187,33 +187,34 @@ class Folder{
         FolderTitle.innerText = name;
         FolderTitle.classList.add('folderTitle');
 
-        // Add a closing button
-        const CloseBtn = document.createElement('div');
         //! Close button makes error for root project, add functionality so that we can remove root folder as well
-        CloseBtn.classList.add('fileIcon');
-        CloseBtn.classList.add('IconClose');
-        CloseBtn.innerHTML = '<i class="fas fa-window-close"></i>';
+        // Add a closing button
+        // const CloseBtn = document.createElement('div');
+        // CloseBtn.classList.add('fileIcon');
+        // CloseBtn.classList.add('IconClose');
+        // CloseBtn.innerHTML = '<i class="fas fa-window-close"></i>';
         
         // Add a removing callback to close button
-        CloseBtn.addEventListener('click', callbackForRemovoning, true);
+        // CloseBtn.addEventListener('click', callbackForRemovoning, true);
 
         // Append icons, and title and close button to folder header
         FolderHeader.appendChild(MoreIcon);
         FolderHeader.appendChild(FolderIcon);
         FolderHeader.appendChild(FolderTitle);
-        FolderHeader.appendChild(CloseBtn);
+        // FolderHeader.appendChild(CloseBtn);
 
         // Append header and rest to the folder main node
         newNode.appendChild(FolderHeader);
         newNode.appendChild(FolderRest);
 
         // Add event listeners to every file node
-        newNode.addEventListener("mouseover", () => {
-            newNode.querySelector('.IconClose').style.display = 'block';
-        });
-        newNode.addEventListener("mouseout", () => {
-            newNode.querySelector('.IconClose').style.display = 'none';
-        });
+        //! Yet works Buggy
+        // newNode.addEventListener("mouseover", () => {
+        //     newNode.querySelector('.IconClose').style.display = 'block';
+        // });
+        // newNode.addEventListener("mouseout", () => {
+        //     newNode.querySelector('.IconClose').style.display = 'none';
+        // });
 
         return newNode;
     }
@@ -241,13 +242,13 @@ const createRoot = (creationalBtnsId, controlBtnsId) => {
     });
 
     // Thirdly create the root Folder
-    root = new Folder(i,undefined,'Your_Project');
+    root = new Folder(i, undefined, 'Your_Project');
     root.placeTheNode(
-        root.createTheNewNode(i,'folder','Your_Project', ()=> {
+        root.createTheNewNode(i, 'folder', 'Your_Project', ()=> {
             root.removeTheChildNodeFromDom(i)
         }, ()=>{
         currentFolder = root
-    }),'fileNavigation');
+    }), 'fileNavigation');
 
     // making the current folder to be the root
     currentFolder = root;
