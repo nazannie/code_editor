@@ -10,7 +10,9 @@ body {
 	height: 100vh;
 }
 
+
 /* Expolrer */
+
 .explorer {
 	background-color: #252526;
 	height: 100vh;
@@ -20,7 +22,10 @@ body {
 	flex-flow: column nowrap;
 	align-items: center;
 }
-	/* Title */
+
+
+/* Title */
+
 .title {
 	box-sizing: border-box;
 	background-color: #333333;
@@ -33,8 +38,12 @@ body {
 	align-items: center;
 	color: #cccccc;
 }
+
+
 /* 1 version */
-	/* Control Buttons
+
+
+/* Control Buttons
 .controlBtns{
 	width: 100%;
 	height: 10%;
@@ -58,15 +67,22 @@ body {
 	outline: none !important;
 	cursor: pointer;
 } */
-	
+
+
 /* 2 version */
-	/* Control Buttons */
+
+
+/* Control Buttons */
+
 .button-range {
 	width: 100%;
 	height: 5%;
 	background-image: linear-gradient(to left, #c0c3bf, #959795);
 }
-		/* Control Button */
+
+
+/* Control Button */
+
 .button-range button {
 	float: right;
 	margin: 0.3125rem;
@@ -86,8 +102,10 @@ body {
 	color: #6a6d9b;
 }
 
-	/* File Navigation */
-.fileNavigation{
+
+/* File Navigation */
+
+.fileNavigation {
 	box-sizing: border-box;
 	height: 80%;
 	width: 100%;
@@ -97,8 +115,11 @@ body {
 	flex-flow: column nowrap;
 	align-items: center;
 }
-		/* File Navigation Title */
-.fileNavigationTitle{
+
+
+/* File Navigation Title */
+
+.fileNavigationTitle {
 	width: 100%;
 	height: 2.5rem;
 	position: absolute;
@@ -111,28 +132,38 @@ body {
 	color: #bcbcbc;
 	font-family: 'Courier New', Courier, monospace;
 }
-		/* GivingName */
-.givingName{
+
+
+/* GivingName */
+
+.givingName {
 	width: 100%;
-    height: 5%;
-    justify-content: center;
+	height: 5%;
+	justify-content: center;
 	align-items: unset;
-	display:none;
+	display: none;
 }
-.givingNameActive{
-    display: flex;
+
+.givingNameActive {
+	display: flex;
 }
-			/* Input For Giving a Name */
-.inputForGivingName{
+
+
+/* Input For Giving a Name */
+
+.inputForGivingName {
 	width: 100%;
-    background-color: #252526;
-    color: #bcbcbc;
-    outline: none !important;
-    border: 0.125rem solid #1e1e1e;
-    border-radius: 0.25rem;
+	background-color: #252526;
+	color: #bcbcbc;
+	outline: none !important;
+	border: 0.125rem solid #1e1e1e;
+	border-radius: 0.25rem;
 }
-		/* Buttons For Creation */
-.btnsForCreation{
+
+
+/* Buttons For Creation */
+
+.btnsForCreation {
 	width: 100%;
 	height: 80vh;
 	background-color: #333333;
@@ -141,8 +172,11 @@ body {
 	justify-content: center;
 	align-items: center;
 }
-			/* Button For Creation */
-.btnForCreation{
+
+
+/* Button For Creation */
+
+.btnForCreation {
 	width: 80%;
 	height: 2rem;
 	background-color: #383838;
@@ -152,9 +186,12 @@ body {
 	margin: 0.5rem 0;
 	cursor: pointer;
 	outline: none !important;
-}		
-		/* File */
-.file{
+}
+
+
+/* File */
+
+.file {
 	box-sizing: border-box;
 	width: 100%;
 	height: 2.5rem;
@@ -170,37 +207,51 @@ body {
 	border: 1px solid #38388B;
 	border-radius: 6px;
 }
-.file:hover .fileControls{
+
+.file:hover .fileControls {
 	right: 0;
 }
-			/* File Icon */
-.fileIcon{
+
+
+/* File Icon */
+
+.fileIcon {
 	width: 20%;
 	text-align: center;
 	font-size: 1.5rem;
 }
-.IconJS{
+
+.IconJS {
 	color: #e8d41b;
 }
-.IconHTML{
+
+.IconHTML {
 	color: #ea6228;
 }
-.IconCSS{
+
+.IconCSS {
 	color: #0b71b3;
 }
-.IconClose{
+
+.IconClose {
 	display: none;
 	color: #cc3333;
 	cursor: pointer;
 }
-			/* File Name */
-.fileName{
+
+
+/* File Name */
+
+.fileName {
 	width: 80%;
 	text-align: center;
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
-			/* File Controls*/
-.fileControls{
+
+
+/* File Controls*/
+
+.fileControls {
 	position: absolute;
 	top: 0;
 	right: -100%;
@@ -210,18 +261,24 @@ body {
 	transition: all 0.2s linear;
 	padding: 0 0.5rem;
 }
-				/* Rename Input */
-.renameInput{
+
+
+/* Rename Input */
+
+.renameInput {
 	width: 80%;
 	outline: none !important;
 	height: 90%;
 	border-radius: 1rem;
 	border: 0.125rem solid #12100b;
 	color: #12100b;
-	padding: 0 0.125rem ;
+	padding: 0 0.125rem;
 }
-		/* Folder */
-.folder{
+
+
+/* Folder */
+
+.folder {
 	width: 100%;
 	background-color: #383838;
 	min-height: 2rem;
@@ -230,43 +287,60 @@ body {
 	align-items: center;
 	overflow-x: hidden;
 }
-			/* Folder Header */
-.folderHeader{
+
+
+/* Folder Header */
+
+.folderHeader {
 	width: 100%;
-	height: 2rem;
+	height: 3rem;
 	display: flex;
 	flex-flow: row nowrap;
 	align-items: center;
 	padding: 0 0.5rem;
 	color: #bcbcbc;
 }
-				/* Folder Icon */
-.folderIcon{
+
+
+/* Folder Icon */
+
+.folderIcon {
 	font-weight: 700;
 	font-size: 1.5rem;
 	width: 15%;
 	text-align: center;
 	transition: all 0.2s linear;
 }
-.folderMoreIcon{
+
+.folderMoreIcon {
 	transform: rotate(180deg);
 }
-				/* Folder Title */
-.folderTitle{
-	width: 70%;
+
+
+/* Folder Title */
+
+.folderTitle {
+	margin-left: 12px;
 	text-align: center;
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
-			/* FolderRest */
-.folderRest{
+
+
+/* FolderRest */
+
+.folderRest {
 	width: 100%;
 	display: none;
 }
-.folderRestActive{
+
+.folderRestActive {
 	display: flex;
 	flex-flow: column nowrap;
 }
-	/* Tab */
+
+
+/* Tab */
+
 .tab-style {
 	width: 25vh;
 	height: 45px;
@@ -278,29 +352,32 @@ body {
 	display: inline-block;
 	margin: 2px;
 }
-  
+
 .delete-style {
 	color: red;
 	float: right;
 	background: #292828;
-	outline:none;
-	cursor:pointer;
+	outline: none;
+	cursor: pointer;
 }
 
+
 /* Editor starts here*/
+
 .editor {
 	display: flex;
 	flex-direction: column;
-	align-items: center; 
+	align-items: center;
 	width: 85%;
 	height: 100vh;
 }
-  
+
 .tabs_container {
 	background-color: #1e1e1e;
 	height: 10%;
 	width: 100%;
-	margin: 0;width: 100%;
+	margin: 0;
+	width: 100%;
 }
 
 .textarea-container {
@@ -334,4 +411,6 @@ body {
 	font-size: 24px;
 	margin: 12px;
 }
+
+
 /* Editor ends here*/
