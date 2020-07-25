@@ -188,6 +188,7 @@ body {
 	color: #0b71b3;
 }
 .IconClose{
+	display: none;
 	color: #cc3333;
 	cursor: pointer;
 }
