@@ -1,12 +1,8 @@
-* {
+body {
+	background-color: #333333;
 	padding: 0;
 	margin: 0;
 	border: none;
-    box-sizing: border-box;
-}
-
-body {
-	background-color: #333333;
 }
 
 .container {
@@ -26,8 +22,9 @@ body {
 }
 	/* Title */
 .title {
+	box-sizing: border-box;
 	background-color: #333333;
-	height: 7%;
+	height: 10%;
 	width: 100%;
 	padding: 0 1rem;
 	font-family: 'Courier New', Courier, monospace;
@@ -91,6 +88,7 @@ body {
 
 	/* File Navigation */
 .fileNavigation{
+	box-sizing: border-box;
 	height: 80%;
 	width: 100%;
 	display: flex;
@@ -157,18 +155,20 @@ body {
 }		
 		/* File */
 .file{
+	box-sizing: border-box;
 	width: 100%;
-	height: 2rem;
-	background-color: #383838;
+	height: 2.5rem;
+	background-color: #38385C;
 	color: #bcbcbc;
 	display: flex;
 	flex-flow: row nowrap;
 	justify-content: space-between;
 	align-items: center;
-	padding: 0rem 1rem;
 	position: relative;
 	overflow: hidden;
 	transition: all 0.2s linear;
+	border: 1px solid #38388B;
+	border-radius: 6px;
 }
 .file:hover .fileControls{
 	right: 0;
@@ -260,7 +260,6 @@ body {
 			/* FolderRest */
 .folderRest{
 	width: 100%;
-	margin: 0 0 0 1rem;
 	display: none;
 }
 .folderRestActive{
@@ -280,7 +279,7 @@ body {
 	margin: 2px;
 }
   
-  .delete-style {
+.delete-style {
 	color: red;
 	float: right;
 	background: #292828;
