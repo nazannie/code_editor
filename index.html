@@ -16,20 +16,6 @@
             <!-- Title -->
             <div class="title">Explorer</div>
 
-            <!-- 1 version -->
-            
-            <!--
-            Control Buttons
-            <div class="controlBtns" id="controlBtns" >
-                New Folder
-                <button type="button" id="addNewFolder" class="controlBtn" disabled><i class="far fa-folder-open"></i></button>
-                New File
-                <button type="button" id="addNewFile" class="controlBtn" disabled><i class="far fa-file-code"></i></button>
-            </div>
-            -->
-
-            <!-- 2 verison -->
-
             <!-- Control Buttond -->
             <div class="button-range" id="controlBtns">
                 <!-- New File -->
@@ -54,18 +40,22 @@
         </div>
         <!-- Editor with input and everything else -->
         <div class="editor">
+            <!-- Inner of the editor -->
+            <div class="editorInner"  id = 'editorInner' >
+                    Create a folder & a file to start working on them
+            </div>
             <!-- Tabs -->
-            <div class="tabs_container">
+            <!-- <div class="tabs_container">
               <div class="tab">
                 <i class="fab fa-js" id="js_icon"></i>
                 <p class="tab_title">please,change me</p>
                 <button class="tab_close"><i class="fas fa-times"></i></button>
               </div>
-            </div>
+            </div> -->
             <!-- Input -->
-            <div class="textarea-container">
+            <!-- <div class="textarea-container">
                 <textarea name="textarea" class="textarea" cols="30" rows="10" placeholder="Type your text here!"></textarea>
-            </div>
+            </div> -->
             <!-- Adress -->
             <div class="file_address">
                 <p class="welcome">Welcome!</p>
@@ -75,24 +65,3 @@
     <script src="./src/script.js"></script>
 </body>
 </html>
-<!-- case there is a folder created -->
-<!-- <div class="file" >
-    <div class="fileIcon IconJS" ><i class="fab fa-js"></i></div>
-    <div class="fileName" >Name.js</div>
-    <div class="file fileControls">
-        Close
-        <div class="fileIcon IconClose" ><i class="fas fa-window-close"></i></div>
-        Rename
-        <input type="text" placeholder="Rename" class="renameInput" />
-    </div>
-</div> -->
-<!-- <div class="folder">
-    <div class="folderHeader" >
-        <div class="folderIcon folderMoreIcon" ><i class="fas fa-chevron-down"></i></div>
-        <div class="folderIcon" ><i class="fas fa-folder"></i></div>
-        <div class="folderTitle" >Root</div>
-        <div class="folderControl" ></div>
-    </div>
-    <div class="folderRest folderRestActive">
-    </div>
-</div> -->

@@ -2,6 +2,7 @@
 let i = 0;
 let root;
 let currentFolder;
+let currentFile;
 
 // File
 class File{
@@ -10,13 +11,118 @@ class File{
         this.text = '';
         this.name = name
     }
-
-    open(){
-
+    // tabCont0
+    createTabSection(num){
+        const Tab = document.createElement('div');
+        Tab.classList.add('tabs_container');
+        Tab.setAttribute('id',`tabCont${num}`);
+        return Tab;
+    }
+    // input0
+    createInputSection(num){
+        const InputCont = document.createElement('div');
+        InputCont.classList.add('textarea-container');
+        const Input = document.createElement('textarea');
+        Input.classList.add('textarea');
+        Input.setAttribute('placeholder','Type your text here!');
+        Input.setAttribute('cols','30');
+        Input.setAttribute('rows','10');
+        Input.setAttribute('id',`input${num}`);
+        Input.addEventListener('change', (e) => { currentFile.text = e.target.value; },true)
+        InputCont.appendChild(Input);
+        return InputCont;
     }
 
-    close(){
+    createEditorSection(num){
+        const Section = document.createElement('div');
+        Section.classList.add('editorSection');
+        Section.appendChild(this.createTabSection(num));
+        Section.appendChild(this.createInputSection(num));
+        return Section;
+    }
+    
+    callbackForTurningTabActive(file){
+        currentFile = file;
+        console.log(file)
+        const allTabs = [...document.getElementById('tabCont0').children];
+        allTabs.forEach(item => {
+            item.classList.remove('tab_active');
+        })
 
+        const Tab = document.getElementById(`${this.id}Tab`);
+        if(Tab){
+            Tab.classList.add('tab_active');
+        }
+        const Input = document.getElementById('input0');
+        Input.value = file.text;
+    }
+
+    createTab(num){
+        const exists = document.getElementById(`${this.id}Tab`);
+        if(exists){
+            this.callbackForTurningTabActive(this)
+            return;
+        }
+        const Tab = document.createElement('div');
+        Tab.classList.add('tab');
+        let icon = document.createElement('i');
+        const nameParts = this.name.split('.')
+        const extension = nameParts[nameParts.length-1].toLowerCase();
+        if( extension === 'js'){
+            icon.classList.add('IconJS');
+            icon.classList.add('fab','fa-js');
+        } else if(extension === 'html' || extension === 'htm'){
+            icon.classList.add('IconHTML');
+            icon.classList.add('fab','fa-html5');
+        } else if(extension === 'css'){
+            icon.classList.add('IconCSS');
+            icon.classList.add('fab','fa-css3-alt');
+        } else{
+            icon.classList.add('fas','fa-file');
+        }
+        icon.classList.add('tabIcon');
+
+        const p = document.createElement('p');
+        p.classList.add('tab_title');
+        p.innerText = this.name;
+
+        const button = document.createElement('button');
+
+        button.classList.add('tab_close');
+        button.innerHTML = '<i class="fas fa-times"></i>';
+        button.addEventListener('click',()=>{this.close(this)},true)
+
+        Tab.appendChild(icon);
+        Tab.appendChild(p);
+        Tab.appendChild(button);
+    
+        Tab.setAttribute('id',`${this.id}Tab`);
+        Tab.addEventListener('click',()=>{this.callbackForTurningTabActive(this)},true);
+
+        const parent = document.getElementById(`tabCont${num}`);
+        parent.appendChild(Tab);
+
+        this.callbackForTurningTabActive(this);
+    }
+
+    open(){
+        const exists = document.getElementById(this.id);
+        if(!exists){
+            console.log('1');
+            return ;
+        }
+        const editorInnner = document.getElementById('editorInner');
+        const doesInputExist = editorInnner.children.length;
+        if(!doesInputExist){
+            editorInnner.innerText = '';
+            editorInnner.appendChild(this.createEditorSection(0))
+        }
+        this.createTab(0);
+
+    }
+    
+    close(file){
+        document.getElementById(`${file.id}Tab`).remove();
     }
 }
 
@@ -111,7 +217,8 @@ class Folder{
         FileIcon.classList.add('fileIcon');
 
         // Add extensions for js, html and css files    
-        const extension = name.split('.')[1];
+        const nameParts = name.split('.');
+        const extension = nameParts[nameParts.length-1].toLowerCase();
         if( extension === 'js'){
             FileIcon.classList.add('IconJS');
             FileIcon.innerHTML = '<i class="fab fa-js"></i>';
@@ -130,6 +237,9 @@ class Folder{
         CloseBtn.classList.add('fileIcon');
         CloseBtn.classList.add('IconClose');
         CloseBtn.innerHTML = '<i class="fas fa-window-close"></i>';
+
+        // Add event listeners to every file node
+        newNode.addEventListener('click', callbackForClicking, true);
         
         // Add a removing callback to close button
         CloseBtn.addEventListener('click', callbackForRemovoning, true);
@@ -139,18 +249,7 @@ class Folder{
         newNode.appendChild(FileName);
         newNode.appendChild(CloseBtn);
 
-        // Add event listeners to every file node
-        newNode.addEventListener('click', callbackForClicking, true);
-        newNode.addEventListener("mouseover", () => {
-            newNode.querySelector('.IconClose').style.display = 'block';
-        });
-        newNode.addEventListener("mouseout", () => {
-            newNode.querySelector('.IconClose').style.display = 'none';
-        });
 
-        newNode.addEventListener('click', () => {
-            console.log('Add file');
-        })
 
         return newNode;
     }
@@ -176,7 +275,7 @@ class Folder{
         const MoreIcon = document.createElement('div');
         MoreIcon.classList.add('folderIcon');
         MoreIcon.innerHTML = '<i class="fas fa-chevron-down"></i>';
-        MoreIcon.addEventListener('click',() => {MoreIcon.classList.toggle('folderMoreIcon');FolderRest.classList.toggle('folderRestActive')})
+        MoreIcon.addEventListener('click',() => {MoreIcon.classList.toggle('folderMoreIcon');FolderRest.classList.toggle('folderRestActive')},true)
 
         const FolderIcon = document.createElement('div');
         FolderIcon.classList.add('folderIcon');
@@ -188,20 +287,21 @@ class Folder{
         FolderTitle.classList.add('folderTitle');
 
         //! Close button makes error for root project, add functionality so that we can remove root folder as well
+        //! Root is not needed to be removed
         // Add a closing button
-        // const CloseBtn = document.createElement('div');
-        // CloseBtn.classList.add('fileIcon');
-        // CloseBtn.classList.add('IconClose');
-        // CloseBtn.innerHTML = '<i class="fas fa-window-close"></i>';
+        const CloseBtn = document.createElement('div');
+        CloseBtn.classList.add('fileIcon');
+        CloseBtn.classList.add('IconClose');
+        CloseBtn.innerHTML = '<i class="fas fa-window-close"></i>';
         
         // Add a removing callback to close button
-        // CloseBtn.addEventListener('click', callbackForRemovoning, true);
+        CloseBtn.addEventListener('click', callbackForRemovoning, true);
 
         // Append icons, and title and close button to folder header
         FolderHeader.appendChild(MoreIcon);
         FolderHeader.appendChild(FolderIcon);
         FolderHeader.appendChild(FolderTitle);
-        // FolderHeader.appendChild(CloseBtn);
+        FolderHeader.appendChild(CloseBtn);
 
         // Append header and rest to the folder main node
         newNode.appendChild(FolderHeader);
@@ -220,6 +320,7 @@ class Folder{
     }
 
     removeTheChildNodeFromDom(id){
+        console.log(id)
         document.getElementById(id).remove();
     }
 
@@ -245,9 +346,9 @@ const createRoot = (creationalBtnsId, controlBtnsId) => {
     root = new Folder(i, undefined, 'Your_Project');
     root.placeTheNode(
         root.createTheNewNode(i, 'folder', 'Your_Project', ()=> {
-            root.removeTheChildNodeFromDom(i)
+            root.removeTheChildNodeFromDom(i);
         }, ()=>{
-        currentFolder = root
+        currentFolder = root;
     }), 'fileNavigation');
 
     // making the current folder to be the root
@@ -276,7 +377,7 @@ const onPressFile = () => {
             event.target.value = '';
             input.parentElement.classList.remove('givingNameActive');
         }
-    })
+    },true)
 }
 
 // Callback for the creation of the new folder
@@ -297,12 +398,12 @@ const onPressFolder = () => {
             event.target.value = '';
             input.parentElement.classList.remove('givingNameActive');
         }
-    })
+    },true)
 }
 
 // Function for placing the Callback
 const placeTheCallback = (idOfTheElement,type,callback) => {
-    document.getElementById(idOfTheElement).addEventListener(type,callback);
+    document.getElementById(idOfTheElement).addEventListener(type,callback,true);
 }
 
 // Palcing The Callbacks

@@ -5,6 +5,11 @@ body {
 	border: none;
 }
 
+button{
+	border: none !important
+;
+}
+
 .container {
 	display: flex;
 	height: 100vh;
@@ -41,39 +46,6 @@ body {
 	color: #cccccc;
 	border-bottom: 2px solid #9400D3;
 }
-
-
-/* 1 version */
-
-
-/* Control Buttons
-.controlBtns{
-	width: 100%;
-	height: 10%;
-	display: flex;
-	flex-flow: row nowrap;
-	align-items: center;
-	justify-content: flex-end;
-	background-color: #333333;
-}
-		Control Button
-.controlBtn{
-	height: 100%;
-	width: 10vh;
-	background-color: #252526;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-size: 2rem;
-	font-weight: 700;
-	color: #12100b;
-	outline: none !important;
-	cursor: pointer;
-} */
-
-
-/* 2 version */
-
 
 /* Control Buttons */
 
@@ -211,8 +183,8 @@ body {
 	border-radius: 6px;
 }
 
-.file:hover .fileControls {
-	right: 0;
+.file:hover .IconClose {
+	right: 0%;
 }
 
 
@@ -237,9 +209,11 @@ body {
 }
 
 .IconClose {
-	display: none;
 	color: #cc3333;
-	cursor: pointer;
+    cursor: pointer;
+    position: absolute;
+	right: -100%;
+	transition: all 0.2s linear;
 }
 
 
@@ -302,8 +276,12 @@ body {
 	align-items: center;
 	padding: 0 0.5rem;
 	color: #bcbcbc;
+	position: relative;
 }
 
+.folderHeader:hover .IconClose{
+    right: 0%;
+}
 
 /* Folder Icon */
 
@@ -334,11 +312,13 @@ body {
 .folderRest {
 	width: 100%;
 	display: none;
+	padding-left: 0.5rem; 
 }
 
 .folderRestActive {
 	display: flex;
 	flex-flow: column nowrap;
+	padding-left: 1rem; 
 }
 
 
@@ -372,21 +352,14 @@ body {
   height: 100%;
   background-color: #383838;
   cursor: pointer;
+  transition: all 0.2s linear;
 }
 
 .tab_active {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 250px;
-  height: 100%;
-  background-color: #383838;
-  cursor: pointer;
   border-top: 3px solid rgb(51, 155, 196);
 }
 
-#js_icon {
-  color: yellow;
+.tabIcon {
   font-size: 25px;
   padding: 0px 20px;
 }
@@ -399,11 +372,11 @@ body {
   width: 35px;
   border: none;
   padding: 0px 20px;
-
+  outline: none !important;
 }
 
 
-/* Editor starts here*/
+/* Editor*/
 
 .editor {
 	display: flex;
@@ -413,15 +386,41 @@ body {
 	height: 100vh;
 }
 
+/* Editor Inner Cont */
+
+.editorInner{
+	height: 90%;
+	width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    color: #959795;
+	font-size: 1.5rem;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+/* Editor Section */
+
+.editorSection{
+	height: 100%;
+    width: 100%;
+}
+
+/* Tabs Cont */
+
 .tabs_container {
 	box-sizing: border-box;
 	background-color: #1e1e1e;
-	height: 10%;
+	height: 11.1%;
 	width: 100%;
 	margin: 0;
 	width: 100%;
-	border-bottom: 2px solid #9400D3;
+	display: flex;
+    flex-flow: row nowrap;
+    align-items: center
 }
+
+/* TextArea */
 
 .textarea-container {
 	height: 80%;
@@ -441,6 +440,8 @@ body {
 	font-family: "Courier New", Courier, monospace;
 	color: white;
 }
+
+/* File Adress */
 
 .file_address {
 	height: 10%;
