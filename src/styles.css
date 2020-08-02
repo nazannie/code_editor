@@ -3,6 +3,7 @@ body {
 	padding: 0;
 	margin: 0;
 	border: none;
+	font-family: "Courier New", Courier, monospace;
 }
 
 button{
@@ -170,7 +171,6 @@ button{
 	box-sizing: border-box;
 	width: 100%;
 	height: 2.5rem;
-	background-color: #38385C;
 	color: #bcbcbc;
 	display: flex;
 	flex-flow: row nowrap;
@@ -179,8 +179,6 @@ button{
 	position: relative;
 	overflow: hidden;
 	transition: all 0.2s linear;
-	border: 1px solid #38388B;
-	border-radius: 6px;
 }
 
 .file:hover .IconClose {
@@ -350,13 +348,14 @@ button{
   align-items: center;
   width: 250px;
   height: 100%;
-  background-color: #383838;
+  background-color: #252526;
   cursor: pointer;
   transition: all 0.2s linear;
 }
 
 .tab_active {
   border-top: 3px solid rgb(51, 155, 196);
+  background-color: #383838;
 }
 
 .tabIcon {
@@ -365,13 +364,13 @@ button{
 }
 
 .tab_close {
-  background-color: #383838;
+  background-color: #252526;
   color: red;
   cursor: pointer;
-  height: 35px;
-  width: 35px;
+  height: 30px;
+  width: 30px;
   border: none;
-  padding: 0px 20px;
+  margin: 0px 40px;
   outline: none !important;
 }
 
