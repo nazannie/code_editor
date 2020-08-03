@@ -16,6 +16,8 @@ class File{
         const Tab = document.createElement('div');
         Tab.classList.add('tabs_container');
         Tab.setAttribute('id',`tabCont${num}`);
+        Tab.setAttribute('ondragover', 'onDragOver(event)');
+        Tab.setAttribute('ondrop', 'onDrop(event)');
         return Tab;
     }
     // input0
@@ -65,6 +67,9 @@ class File{
         }
         const Tab = document.createElement('div');
         Tab.classList.add('tab');
+        //! Add draggable attribute
+        Tab.setAttribute('draggable', 'true');
+        Tab.setAttribute('ondragstart', 'onDragStart(event)');
         let icon = document.createElement('i');
         const nameParts = this.name.split('.')
         const extension = nameParts[nameParts.length-1].toLowerCase();
@@ -206,7 +211,8 @@ class Folder{
         const newNode = document.createElement('div');
         newNode.classList.add('file');
         newNode.setAttribute('id',idOfTheNewElement);
-
+        newNode.setAttribute('draggable', 'true');
+        newNode.setAttribute('ondragstart', 'onDragStart(event)');
         // Set File Name
         const FileName = document.createElement('div');
         FileName.classList.add('fileName');
@@ -412,5 +418,30 @@ placeTheCallback('createRootBtn', 'click',() => {
 });
 placeTheCallback('addNewFile', 'click', onPressFile);
 placeTheCallback('addNewFolder', 'click', onPressFolder);
+
+function onDragStart(event) {
+    event
+      .dataTransfer
+      .setData('text', event.target.id);
+    event.dataTransfer.dropEffect = "copy";
+}
+
+function onDragOver(event) {
+    event.preventDefault();
+    event.dataTransfer.dropEffect = "copy";
+}
+
+function onDrop(event) {
+    event.preventDefault();
+    const id = event
+      .dataTransfer
+      .getData('text');
+    const draggableElement = document.getElementById(id);
+    event.target.appendChild(draggableElement);
+
+    event
+    .dataTransfer
+    .clearData();
+}
 
 
