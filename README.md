@@ -2,7 +2,7 @@
 
 This is an easy to use Code Editor.
 
-Building
+# Bulding
 
 Run the Following command from the command line to get the code
 
