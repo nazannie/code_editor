@@ -1,6 +1,6 @@
 # code_editor
 
-This is an easy to use Code Editor.
+This is an easy to use, intuitive, beautiful & lightweight Code Editor.
 
 ## Acrtivating
 
