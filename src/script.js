@@ -40,10 +40,15 @@ class File{
         Section.appendChild(this.createInputSection(num));
         return Section;
     }
+
+    setTheDetails(text){
+        const detail = document.getElementById('detailFile');
+        detail.innerText = text;
+    }
     
     callbackForTurningTabActive(file){
         currentFile = file;
-        console.log(file)
+        this.setTheDetails(file.name);
         const allTabs = [...document.getElementById('tabCont0').children];
         allTabs.forEach(item => {
             item.classList.remove('tab_active');
@@ -123,6 +128,19 @@ class File{
     
     close(file){
         document.getElementById(`${file.id}Tab`).remove();
+        const hasChildren = [...document.getElementById('tabCont0').children].length;
+        if(!hasChildren){
+            const editorInner = [...document.getElementById('editorInner').children][0];
+            editorInner.remove();
+            document.getElementById('editorInner').innerText = 'Choose a file to work on';
+            this.setTheDetails(' none ')
+            return;
+        }
+        const firstTab = [...document.getElementById('tabCont0').children][0];
+        const idAtr = firstTab.id;
+        const id = idAtr.slice(0,-3);
+        const fileCont = document.getElementById(id);
+        fileCont.click();
     }
 }
 
@@ -135,11 +153,15 @@ class Folder{
         this.name = name;
     }
 
+    setTheDetails(text){
+        const detail = document.getElementById('detailFolder');
+        detail.innerText = `fol. where new items will be added - ${text}`;
+    }
+
     addNewChildElement(idOfTheNewElement, type, name, root1) {
         if (type === 'file') {
             const newChild = new File(idOfTheNewElement, name);
             this.child[idOfTheNewElement] = newChild;
-
             let idOfTheParent = root1.id;
 
             this.placeTheNode(this.createTheNewNode(
@@ -173,6 +195,7 @@ class Folder{
                 },
                 ()=> {
                     currentFolder = this.child[idOfTheNewElement];
+                    this.setTheDetails(this.child[idOfTheNewElement].name);
                 }),`${idOfTheParent}Cont`);
 
             return this.child[idOfTheNewElement];
@@ -344,11 +367,13 @@ const createRoot = (creationalBtnsId, controlBtnsId) => {
 
     // Thirdly create the root Folder
     root = new Folder(i, undefined, 'Your_Project');
+    root.setTheDetails(root.name);
     root.placeTheNode(
         root.createTheNewNode(i, 'folder', 'Your_Project', ()=> {
             root.removeTheChildNodeFromDom(i);
         }, ()=>{
         currentFolder = root;
+        root.setTheDetails(root.name);
     }), 'fileNavigation');
 
     // making the current folder to be the root

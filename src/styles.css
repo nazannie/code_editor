@@ -392,7 +392,8 @@ button{
 	width: 100%;
     display: flex;
     flex-flow: row nowrap;
-    align-items: center;
+	align-items: center;
+	justify-content: center;
     color: #959795;
 	font-size: 1.5rem;
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -448,10 +449,13 @@ button{
 	background-color: #1e1e1e;
 	color: #cccccc;
 	font-family: "Courier New", Courier, monospace;
+	display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .welcome {
-	font-size: 24px;
+	font-size: 1rem;
 	margin: 12px;
 }
 
