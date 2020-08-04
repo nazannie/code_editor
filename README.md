@@ -15,7 +15,9 @@ Then open
 ```bash
   index.html
 ```
+
 ##Design Patter
+
 For this project, we created a custom Pattern that maximally uses the advantages of the JS & we named it File-Folder or FF
 It consists of 2 classes (File & Folder) and 1 functional file
 File is used to call functions to open and close tabs
